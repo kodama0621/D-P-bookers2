@@ -1,6 +1,6 @@
 <main>
   <% if @user.errors.any? %>
-    <P><%= @user.errors.count %>errors prohibited this obj from being saved:</p>
+    <p><%= @user.errors.count %>errors prohibited this obj from being saved:</p>
     <ul>
       <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>

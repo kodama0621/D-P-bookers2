@@ -17,7 +17,7 @@ end
     else
       @user = current_user
       @books = Book.all
-      render　:index
+      render :index
     end
   end
 
