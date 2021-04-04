@@ -1,15 +1,13 @@
 <main>
   <div class="container px-5 px-sm-0">
     <div class="row">
-      <!--UserInfo部分テンプレート-->
-      <div class="col-md-3">
-        <%= render "users/user_info", user: @user, book: @book %>
-      </div>
-      <!--右側のUsers部分-->
+
+      <%= render "users/post", user: @user, book: @book %>
+
       <div class="col-md-8 offset-md-1">
         <h2>Users</h2>
+
         <table class="table table-hover">
-          <!--|image|name|colspan 3|-->
           <thead>
             <tr>
               <th>image</th>
@@ -17,22 +15,20 @@
               <th colspan="3"></th>
             </tr>
           </thead>
-          <!--全Userデータ数だけ繰り返す-->
           <tbody>
-            <% @users.each do |users| %>
-            <tr>
-              <td>
-                <%= attachment_image_tag users, :profile_image, :fill, 30, 30, fallback: "no_image.jpg",size: "30x30" %>
-              </td>
-              <td><%= users.name %></td>
-              <!--遷移先は各user_id-->
-              <td><%= link_to "Show", user_path(users) %></td>
-            </tr>
+            <% @users.each do |user| %>
+              <tr>
+                <td>
+                  <%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: "jpg", fallback: "no_image.jpg", size: "50x50" %>
+                </td>
+                <td><%= user.name %></td>
+                <td><%= link_to "Show", user_path(user.id) %></td>
+              </tr>
             <% end %>
           </tbody>
-
         </table>
       </div>
+
     </div>
   </div>
 </main>
